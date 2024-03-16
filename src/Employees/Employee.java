@@ -43,7 +43,7 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
-    
+
 
     public List<Waiter> getWaiters() {
         return waiters;
@@ -77,7 +77,7 @@ public class Employee {
         this.cleaners = cleaners;
     }
 
-    @Override
+
     public String toString() {
         return "Name: " + this.name + " Position: " + this.position + " Salary: " + String.format("%.2f", this.salary) + " $ ";
     }

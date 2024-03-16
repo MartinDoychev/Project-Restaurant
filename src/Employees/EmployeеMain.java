@@ -11,7 +11,7 @@ public class EmployeеMain {
         Cook cookEthan = new Cook("Ethan Davis", "Cook", 1800);
         Cleaner cleanerCharlotte = new Cleaner("Charlotte Wilson", "Cleaner", 1000);
         Cleaner cleanerIsabella = new Cleaner("Isabella Thompson", "Cleaner", 1000);
-
+        System.out.println(waiterDimitur);
 
     }
 }
