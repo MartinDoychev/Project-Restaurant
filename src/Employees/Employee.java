@@ -43,11 +43,7 @@ public class Employee {
     public void setSalary(double salary) {
         this.salary = salary;
     }
-
-    public void addTip(double tip) {
-        this.tip = +tip;
-    }
-
+    
 
     public List<Waiter> getWaiters() {
         return waiters;
