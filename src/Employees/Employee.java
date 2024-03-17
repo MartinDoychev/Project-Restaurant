@@ -2,11 +2,10 @@ package Employees;
 
 import java.util.List;
 
-public class Employee {
+public class Employee  {
     private String name;
     private String position;
     private double salary;
-    private double tip = 0.0;
     private List<Waiter> waiters;
     private List<Bartender> bartenders;
     private List<Cook> cooks;
@@ -18,6 +17,9 @@ public class Employee {
         this.position = position;
         this.salary = salary;
 
+    }
+
+    public Employee() {
     }
 
     public String getName() {
@@ -42,6 +44,11 @@ public class Employee {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public double getTotalSalary(){
+        return getSalary();
+
     }
 
 
@@ -81,4 +88,6 @@ public class Employee {
     public String toString() {
         return "Name: " + this.name + " Position: " + this.position + " Salary: " + String.format("%.2f", this.salary) + " $ ";
     }
+
+
 }
