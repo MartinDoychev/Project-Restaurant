@@ -1,8 +1,5 @@
-import Employees.Employee;
-import Employees.Waiter;
 import Restaurant.FoodAndDrink.Drinks;
 import Restaurant.FoodAndDrink.Food;
-import Restaurant.FoodAndDrink.Product;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,13 +8,13 @@ import java.util.Scanner;
 public class Order extends Restaurant {
 
     private int id;
-    private  double price;
+    private double price;
     private  double tip;
-    private  double bill;
+    private double bill;
     List<Food>foods=new ArrayList<>();
     List<Drinks>drinks=new ArrayList<>();
 
-    public Order(int id, double bill, int price,double tip ) {
+    public Order() {
         this.id = id;
         this.price=price;
         this.tip=price*0.1;
