@@ -6,6 +6,7 @@ public class Restaurant {
     private int stars;
     private double capital;
 
+
     //Default Constructor
     public Restaurant() {
         this.name = "JavaBite";
@@ -69,7 +70,7 @@ public class Restaurant {
     }
 
     //method for ordering food
-    public void orderFood() {
+    public void orderFood () {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please, insert what would you like to order: \n1. Starter\n2. Main dish\n3. Dessert");
         short choice = scanner.nextShort();
@@ -100,5 +101,7 @@ public class Restaurant {
             }
         }
     }
+
+
 }
 
