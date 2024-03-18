@@ -1,84 +1,130 @@
 package Restaurant.FoodAndDrink;
 
+import java.util.HashMap;
+
 public class Product {
-    private String name;
-    private int amount;
+    private static HashMap<String, Integer> productQuantity = new HashMap<>();
+    private static HashMap<String, String> productName = new HashMap<>();
+
+    private String nameOfObject;
 
     public Product() {
     }
 
     public Product(String name) {
+        this.nameOfObject = name;
         this.setName(name);
         this.setAmount(name);
         this.minusOneProduct();
     }
 
     public String getName() {
-        return this.name;
+        return productName.getOrDefault(this.nameOfObject, "");
     }
 
     public int getAmount() {
-        return this.amount;
+        return productQuantity.getOrDefault(this.nameOfObject, 0);
+    }
+
+    public String getNameOfObject() {
+        return this.nameOfObject;
     }
 
     public void setName(String name) {
-        if(name == "Salad")
-            this.name = "Tomatoes, Cucumber, Lettuce, Corn";
-
-        else if (name == "Chicken nuggets")
-            this.name = "Chicken";
-
-        else if(name == "French Fries")
-            this.name = "Potatoes";
-
-        else if(name == "Chicken breast with mushrooms and sauce")
-            this.name = "Chicken, Mushrooms";
-
-        else if(name == "Pork ribs with grilled potatoes")
-            this.name = "Pork ribs, Potatoes";
-
-        else if(name == "Sushi")
-            this.name = "Salmon, Rice";
-
-        else if(name == "Cheesecake")
-            this.name = "Cream Cheese and Cookies";
-
-        else if(name == "Pancake")
-            this.name = "Flour, Eggs, Chocolate";
-
-        else if(name == "Soufflè with a ball ice cream")
-            this.name = "Chocolate, Ice cream balls";
+        if (!productName.containsKey(name))
+            productName.put(name, getInitialName(name));
     }
 
     public void setAmount(String name) {
-        if(name == "Salad")
-            this.amount = 0;
-
-        else if (name == "Chicken nuggets")
-            this.amount = 10;
-
-        else if(name == "French Fries")
-            this.amount = 15;
-
-        else if(name == "Chicken breast with mushrooms and sauce")
-            this.amount = 13;
-
-        else if(name == "Pork ribs with grilled potatoes")
-            this.amount = 2;
-
-        else if(name == "Sushi")
-            this.amount = 5;
-
-        else if(name == "Cheesecake")
-            this.amount = 7;
-
-        else if(name == "Pancake")
-            this.amount = 3;
-
-        else if(name == "Soufflè with a ball ice cream")
-            this.amount = 6;
+        if (!productQuantity.containsKey(name))
+            productQuantity.put(name, getInitialQuantity(name));
     }
+
+    public void setNameOfObject(String name) {
+        if (!productQuantity.containsKey(name))
+            productQuantity.put(name, 0);
+    }
+
+    private int getInitialQuantity(String name) {
+        switch (name) {
+            case "Salad":
+                return 0;
+
+            case "Chicken nuggets":
+                return 10;
+
+            case "French Fries":
+                return 15;
+
+            case "Chicken breast with mushrooms and sauce":
+                return 13;
+
+            case "Pork ribs with grilled potatoes":
+                return 2;
+
+            case "Sushi":
+                return 5;
+
+            case "Cheesecake":
+                return 7;
+
+            case "Pancake":
+                return 3;
+
+            case "Soufflè with a ball ice cream":
+                return 6;
+
+            default:
+                return 0;
+        }
+    }
+
+    private String getInitialName(String name) {
+        switch (name) {
+            case "Salad":
+                return "Tomatoes, Cucumber, Lettuce, Corn";
+
+            case "Chicken nuggets":
+                return "Chicken";
+
+            case "French Fries":
+                return "Potatoes";
+
+            case "Chicken breast with mushrooms and sauce":
+                return "Chicken, Mushrooms";
+
+            case "Pork ribs with grilled potatoes":
+                return "Pork ribs, Sweet Potatoes";
+
+            case "Sushi":
+                return "Salmon, Rice";
+
+            case "Cheesecake":
+                return "Cream Cheese and Cookies";
+
+            case "Pancake":
+                return "Flour, Eggs, Chocolate";
+
+            case "Soufflè with a ball ice cream":
+                return "Chocolate, Ice cream balls";
+
+            default:
+                return "";
+        }
+    }
+
     public void minusOneProduct() {
-        this.amount -= 1;
+        if (productQuantity.containsKey(this.nameOfObject)) {
+            int quantity = productQuantity.get(this.nameOfObject);
+
+            if (quantity > 0) {
+                productQuantity.put(this.nameOfObject, quantity - 1);
+                System.out.println(this.nameOfObject + " has been ordered.");
+                quantity--;
+            }
+
+            else
+                System.out.println("--- SORRY, " + this.nameOfObject + " IS OUT OF STOCK! ---");
+        }
     }
 }

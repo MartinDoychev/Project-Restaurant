@@ -6,8 +6,7 @@ public class Main {
         Customer customer=new Customer();
         customer.assignWaitersToCustomers();
         Restaurant obj = new Restaurant("JavaBite", 4, 21000);
-        obj.orderFood();
-
+        //obj.orderFood();
 
     }
 }

@@ -1,5 +1,5 @@
-import Restaurant.FoodAndDrink.Drinks;
-import Restaurant.FoodAndDrink.Food;
+import Restaurant.FoodAndDrink.Drink.Drinks;
+import Restaurant.FoodAndDrink.Food.Food;
 
 import java.util.ArrayList;
 import java.util.List;

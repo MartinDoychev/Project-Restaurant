@@ -1,34 +1,34 @@
-import Restaurant.FoodAndDrink.Food;
+import Restaurant.FoodAndDrink.Food.Food;
+import Restaurant.FoodAndDrink.Menu;
 
 import java.util.Scanner;
+
 public class Restaurant {
     private String name;
     private int stars;
     private double capital;
 
+    Menu menu = new Menu();
 
-    //Default Constructor
     public Restaurant() {
         this.name = "JavaBite";
         this.stars = 2;
         this.capital = 15000.0;
+        this.menu.printMenu();
     }
 
-    //Constructor with parameters
     public Restaurant(String name, int stars, double capital) {
         setName(name);
         setStars(stars);
         setCapital(capital);
     }
 
-    //Copy Constructor
     public Restaurant(Restaurant other) {
         this.name = other.name;
         this.stars = other.stars;
         this.capital = other.capital;
     }
 
-    //Getters
     public String getName() {
         return this.name;
     }
@@ -41,7 +41,10 @@ public class Restaurant {
         return capital;
     }
 
-    //Setters
+    public Menu getMenu() {
+        return menu;
+    }
+
     public void setName(String name) {
         if ('A' <= name.charAt(0) && name.charAt(0) <= 'Z')
             this.name = name;
@@ -61,6 +64,10 @@ public class Restaurant {
             this.stars = stars;
     }
 
+    public void setMenu(Menu menu) {
+        this.menu = menu;
+    }
+
     public void setCapital(double capital) {
         if(this.capital < 0 || this.capital < 4000)
             this.capital = 4000;
@@ -68,40 +75,4 @@ public class Restaurant {
         else
             this.capital = capital;
     }
-
-    //method for ordering food
-    public void orderFood () {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please, insert what would you like to order: \n1. Starter\n2. Main dish\n3. Dessert");
-        short choice = scanner.nextShort();
-        System.out.println();
-
-        switch (choice) {
-            case 1: {
-                Food food = new Food();
-                food.choiceStarter();
-                break;
-            }
-
-            case 2: {
-                Food food = new Food();
-                food.choiceMainDish();
-                break;
-            }
-
-            case 3: {
-                Food food = new Food();
-                food.choiceDessert();
-                break;
-            }
-
-            default: {
-                System.out.println("Something went wrong");
-                break;
-            }
-        }
-    }
-
-
 }
-
