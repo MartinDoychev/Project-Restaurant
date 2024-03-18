@@ -1,15 +1,14 @@
 package Employees;
 
+import java.beans.Customizer;
 import java.util.List;
 
 public class Employee  {
     private String name;
     private String position;
     private double salary;
-    private List<Waiter> waiters;
-    private List<Bartender> bartenders;
-    private List<Cook> cooks;
-    private List<Cleaner> cleaners;
+
+
 
 
     public Employee(String name, String position, double salary) {
@@ -49,39 +48,6 @@ public class Employee  {
     public double getTotalSalary(){
         return getSalary();
 
-    }
-
-
-    public List<Waiter> getWaiters() {
-        return waiters;
-    }
-
-    public void setWaiters(List<Waiter> waiters) {
-        this.waiters = waiters;
-    }
-
-    public List<Bartender> getBartenders() {
-        return bartenders;
-    }
-
-    public void setBartenders(List<Bartender> bartenders) {
-        this.bartenders = bartenders;
-    }
-
-    public List<Cook> getCooks() {
-        return cooks;
-    }
-
-    public void setCooks(List<Cook> cooks) {
-        this.cooks = cooks;
-    }
-
-    public List<Cleaner> getCleaners() {
-        return cleaners;
-    }
-
-    public void setCleaners(List<Cleaner> cleaners) {
-        this.cleaners = cleaners;
     }
 
 

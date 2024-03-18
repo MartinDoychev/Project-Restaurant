@@ -5,12 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Order extends Restaurant {
+public class Order  {
 
     private int id;
     private double price;
     private  double tip;
     private double bill;
+    
     List<Food>foods=new ArrayList<>();
     List<Drinks>drinks=new ArrayList<>();
 

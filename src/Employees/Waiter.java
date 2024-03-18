@@ -1,7 +1,7 @@
 package Employees;
 
-public class Waiter extends Employee {
-    private double tip;
+public class Waiter extends Employee{
+private double tip;
 
     public double getTip() {
         return tip;
@@ -15,10 +15,10 @@ public class Waiter extends Employee {
         super(name, position, salary);
     }
 
-    @Override
+@Override
     public double getSalary() {
-        return getSalary() + tip;
-    }
+        return getSalary()+tip;
+}
 }
 
 
