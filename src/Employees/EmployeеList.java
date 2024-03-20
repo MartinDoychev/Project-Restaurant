@@ -29,7 +29,7 @@ public EmployeеList(){
         employee.add(new Cook("Ethan Davis", "Cook", 1800));
         employee.add(new Cleaner("Charlotte Wilson", "Cleaner", 1000));
         employee.add(new Cleaner("Isabella Thompson", "Cleaner", 1000));
-        
+
     }
 
 

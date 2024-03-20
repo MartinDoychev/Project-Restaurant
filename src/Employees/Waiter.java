@@ -1,7 +1,12 @@
 package Employees;
 
-public class Waiter extends Employee{
-private double tip;
+public class Waiter extends Employee {
+    private double tip;
+    private double totalTip = 0;
+    private double totalOrder = 0;
+    public Waiter(String name, String position, double salary) {
+        super(name, position, salary);
+    }
 
     public double getTip() {
         return tip;
@@ -11,14 +16,21 @@ private double tip;
         this.tip = tip;
     }
 
-    public Waiter(String name, String position, double salary) {
-        super(name, position, salary);
+    public double getTotalTip() {
+        return totalTip;
     }
 
-@Override
-    public double getSalary() {
-        return getSalary()+tip;
+    public void setTotalTip(double totalTip) {
+        this.totalTip = totalTip;
+    }
+
+    public void addTotalOrder(double amount){
+        this.totalOrder+=amount;
+    }
+    public void addTips(double tip){
+        this.totalTip+=tip;
+    }
 }
-}
+
 
 

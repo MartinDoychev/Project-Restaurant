@@ -30,25 +30,30 @@ public class Customer extends Employee {
         return NAME;
     }
 
+    public void assignTable(Table table) {
+        this.table = table;
+    }
+
     public void assignWaitersToCustomers() {
         Table table = new Table();
         table.Seats();
         int tableCount = table.getNumberTable();
-        EmployeеList employeеList=new EmployeеList();
-        List<Employee> waiters = new ArrayList<>();
-        for (Employee employee :employeеList.getEmployee()) {
+        EmployeеList employeеList = new EmployeеList();
+        List<Waiter> waiters = new ArrayList<>();
+        for (Employee employee : employeеList.getEmployee()) {
             if (employee instanceof Waiter) {
-                waiters.add(employee);
+                waiters.add((Waiter) employee);
             }
         }
 
         for (int i = 1; i < tableCount; i++) {
-                Employee waiter = waiters.get(i % waiters.size());
-                System.out.printf("Hello, you are served by a %s, with an order number %d for the day.\n", waiter.getName(), id++);
+            Employee waiter = waiters.get(i % waiters.size());
+            System.out.printf("Hello, you are served by a %s, with an order number %d for the day.\n", waiter.getName(), id++);
 
         }
 
 
     }
+
 
 }

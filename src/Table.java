@@ -1,4 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Table {
+    private int id;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     private static final int TABLE = 11;
     private static final int TABLE_SEATS_SMALL = 4;
     private static final int TABLE_SEATS_MEDIUM = 4;
@@ -6,11 +19,13 @@ public class Table {
     private int customers;
     private int group;
     private int numberTable = 1;
-
+    private double totalBill=0;
+    private List<Order>orders=new ArrayList<>();
     public Table() {
         this.customers = customers;
         this.group = group;
         this.numberTable = numberTable;
+        this.id=id;
     }
 
     public int getCustomers() {
@@ -35,6 +50,24 @@ public class Table {
 
     public void setNumberTable(int numberTable) {
         this.numberTable = numberTable;
+    }
+
+    public double gettotalBill() {
+        return totalBill;
+    }
+
+    public void settotalBill(double totalBill) {
+        totalBill = totalBill;
+    }
+    public void addTotalBill(double orderPrice){
+        this.totalBill+=orderPrice;
+    }
+    public void addOrder(Order order){
+        this.orders.add(order);
+        this.totalBill+= order.getBill();
+    }
+    public List<Order> getOrder(){
+        return orders;
     }
     public void Seats() {
         int min = 15;
@@ -71,5 +104,16 @@ public class Table {
         if (this.customers >= availableSeats) {
             System.out.println("No free tables, come another day!");
         }
+    }
+    public void  printBill(){
+        double totalBill=0;
+        System.out.println("Table"+getId()+"Bill: ");
+        for (Order order:orders
+             ) {
+            System.out.printf("Order ID: %d, Price: %.2f, Tip:%,2f\n ",order.getId(),order.getPrice(),order.getTip());
+            totalBill+=order.getBill();
+
+        }
+        System.out.printf("Total Bill for Table %d: %.2f:\n " ,getId(),totalBill);
     }
 }
