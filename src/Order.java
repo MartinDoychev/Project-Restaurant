@@ -8,21 +8,27 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Order {
-
+    private  static int nextId=0;
     private int id;
     private double price;
     private double tip;
     private double bill;
     private Waiter waiter;
     private Table table;
-
+    Scanner scanner = new Scanner(System.in);
     List<Food> foods = new ArrayList<>();
     List<Drinks> drinks = new ArrayList<>();
 
-    Scanner scanner = new Scanner(System.in);
+    public static int getNextId() {
+        return nextId;
+    }
+
+    public static void setNextId(int nextId) {
+        Order.nextId = nextId;
+    }
 
     public Order(Table table, Waiter waiter) {
-        this.id = 0;
+        this.id =nextId++;
         this.price = 0;
         this.tip = 0;
         this.bill = 0;
@@ -49,7 +55,7 @@ public class Order {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId() {
         this.id = id;
     }
 
@@ -90,51 +96,66 @@ public class Order {
     }
 
     public void takeOrder(Menu menu) {
-        System.out.println("Do you want to order Food? Yes or No");
-        String choice = scanner.nextLine();
-        if ("Yes".equalsIgnoreCase(choice)) {
-            System.out.println("Please select a food from the menu");
-            while (true) {
-                String itemFood = scanner.nextLine();
-                if (itemFood.isEmpty()) {
-                    break;
-                }
-                for (Food food :
-                        menu.getFoods()) {
-                    if (food.getName().equalsIgnoreCase(itemFood)) {
-                        addFood(food);
+        for (int i = 1; i <= table.getNumberTable() ; i++) {
+            System.out.println("Do you want to order Food? Yes or No");
+            String choiceFood = scanner.nextLine();
+            if ("Yes".equalsIgnoreCase(choiceFood)) {
+                System.out.println("Please select a food from the menu");
+                while (true) {
+                    String itemFood = scanner.nextLine();
+                    if (itemFood.isEmpty()) {
+                        break;
                     }
+                    boolean foundFood = false;
+                    for (Food food :
+                            menu.getFoods()) {
+                        if (food.getName().equalsIgnoreCase(itemFood)) {
+                            addFood(food);
+                            foundFood = true;
+                            break;
+                        }
 
+                    }
+                    if (!foundFood) {
+                        System.out.println("Food not found, try again.");
+                    }
                 }
+
+            }
+            System.out.println("Do you want to order Drinks? Yes or No");
+            String choiceDrinks = scanner.nextLine();
+            if ("Yes".equalsIgnoreCase(choiceDrinks)) {
+                System.out.println("Please select a drink from the menu");
+                while (true) {
+                    String itemDrink = scanner.nextLine();
+                    if (itemDrink.isEmpty()) {
+                        break;
+                    }
+                    boolean foundDrink = false;
+                    for (Drinks drinks :
+                            menu.getDrinks()) {
+                        if (drinks.getName().equalsIgnoreCase(itemDrink)) {
+                            addDrink(drinks);
+                            foundDrink = true;
+                            break;
+                        }
+
+                    }
+                    if (!foundDrink) {
+                        System.out.println("Drink not found, try again.");
+                    }
+                }
+
             }
         }
-        System.out.println("Do you want to order Drinks? Yes or No");
-        choice = scanner.nextLine();
-        if ("Yes".equalsIgnoreCase(choice)) {
-            System.out.println("Please select a drink from the menu");
-            while (true) {
-                String itemDrink = scanner.nextLine();
-                if (itemDrink.isEmpty()) {
-                    break;
-                }
-                for (Drinks drinks :
-                        menu.getDrinks()) {
-                    if (drinks.getName().equalsIgnoreCase(itemDrink)) {
-                        addDrink(drinks);
-                    }
-
-                }
-            }
-        }
-
     }
 
     public void calculateTip() {
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Will you leave a 10% tip?");
-        String tipYesOrNo = scanner.nextLine();
-        if (tipYesOrNo.equalsIgnoreCase("yes")) {
+        System.out.println("Will you leave a 10% tip? (Yes/No)");
+        String tipChoice = scanner.nextLine();
+        if (tipChoice.equalsIgnoreCase("yes")) {
             tip = price * 0.1;
             bill = price + tip;
         } else {
@@ -145,9 +166,9 @@ public class Order {
             waiter.addTips(tip);
             waiter.addTotalOrder(price);
         }
-        System.out.printf("Your bill is %.2f $", bill);
+        System.out.printf("Your bill is %.2f $\n ", bill);
 
     }
 
-
 }
+

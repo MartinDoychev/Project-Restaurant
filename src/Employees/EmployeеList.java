@@ -20,9 +20,9 @@ public EmployeеList(){
 
     private void listCharacteristicsEmployee()
             {
-        employee.add(new Waiter("Emily Carter", "Waiter", 1100));
-        employee.add(new Waiter("Michael Smith", "Waiter", 1400));
-        employee.add(new Waiter("Dimitur Georgiev", "Waiter", 1400));
+                employee.add(new Waiter("Emily Carter", "Waiter", 1100));
+                employee.add(new Waiter("Michael Smith", "Waiter", 1400));
+                employee.add(new Waiter("Dimitur Georgiev", "Waiter", 1400));
         employee.add(new Bartender("James Williams", "Bartender", 1600));
         employee.add(new Bartender("Victoria Simeonova", "Bartender", 1600));
         employee.add(new Cook("Olivia Brown", "Cook", 1800));

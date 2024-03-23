@@ -2,20 +2,18 @@
 import Employees.Employee;
 import Employees.EmployeеList;
 import Employees.Waiter;
+import Restaurant.FoodAndDrink.Menu;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Customer extends Employee {
+public class Customer  {
     private int id = 1;
     private Order order;
     private String NAME;
-
-
     private Table table;
-
     Scanner scanner = new Scanner(System.in);
 
     public Customer(String name, boolean tip) {
@@ -35,8 +33,7 @@ public class Customer extends Employee {
     }
 
     public void assignWaitersToCustomers() {
-        Table table = new Table();
-        table.Seats();
+
         int tableCount = table.getNumberTable();
         EmployeеList employeеList = new EmployeеList();
         List<Waiter> waiters = new ArrayList<>();
@@ -54,6 +51,8 @@ public class Customer extends Employee {
 
 
     }
+
+
 
 
 }
