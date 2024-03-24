@@ -11,7 +11,6 @@ public class Menu {
         this.optionsDrinks = new Drinks[10];
 
         this.creation();
-
     }
 
     private void creation() {
@@ -125,7 +124,7 @@ public class Menu {
                 System.out.println("Name: " + food.getName());
                 System.out.println("Portion: " + food.getPortion());
                 System.out.println("Price: " + food.getPrice());
-                System.out.println('\n');
+                System.out.println();
             }
         }
     }
@@ -136,13 +135,14 @@ public class Menu {
                 System.out.println("Name: " + drink.getName());
                 System.out.println("Liters: " + drink.getLiters());
                 System.out.println("Price: " + drink.getPrice());
-                System.out.println('\n');
+                System.out.println();
             }
         }
     }
 
     public void printMenu() {
-        System.out.println("---------------- DISHES ----------------\n");
+        System.out.printf("\n                  MENU\n");
+        System.out.println("\n---------------- DISHES ----------------\n");
         printFood();
         System.out.println("\n---------------- DRINKS ----------------\n");
         printDrinks();
