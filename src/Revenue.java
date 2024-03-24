@@ -19,7 +19,12 @@ public class Revenue {
     public double gerNetRevenue() {
         return this.totalRevenue - this.totalTips;
     }
-
+public double getTotalTips(){
+        return this.totalTips;
+}
+    public double getTotalRevenue(){
+        return this.totalRevenue;
+    }
 }
 
 

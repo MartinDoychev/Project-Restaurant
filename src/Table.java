@@ -8,7 +8,7 @@ public class Table {
     private static int nextId = 0;
     private int id;
     private static final int TABLE = 11;
-   
+
     private int customers;
     private int group;
     private int numberTable = 1;
@@ -75,10 +75,10 @@ public class Table {
             }
 
             if (this.group <= 4) {
-                System.out.println("You are at a table for four, number table" + numberTable);
+                System.out.println("You are at a table for four, number table " + numberTable);
                 this.customers -= 4;
             } else if (this.group <= 6) {
-                System.out.println("You are at a table for six, number table" + numberTable);
+                System.out.println("You are at a table for six, number table " + numberTable);
                 this.customers -= 6;
 
             } else if (this.group <= 8) {
@@ -115,6 +115,6 @@ public class Table {
             System.out.printf("Order ID: %d, Price: %.2f $, Tip:%.2f $\n", order.getNextId(), order.getPrice(), order.getTip());
 
         }
-        System.out.printf("Total Bill %.2f $:\n", gettotalBill());
+
     }
 }
