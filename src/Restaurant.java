@@ -14,7 +14,7 @@ public class Restaurant {
         this.name = "JavaBite";
         this.stars = 2;
         this.capital = 15000.0;
-        this.menu.printMenu();
+
     }
 
     public Restaurant(String name, int stars, double capital) {
@@ -49,15 +49,14 @@ public class Restaurant {
         if ('A' <= name.charAt(0) && name.charAt(0) <= 'Z')
             this.name = name;
 
-        else
-        {
+        else {
             name = Character.toUpperCase(name.charAt(0)) + name.substring(1);
             this.name = name;
         }
     }
 
     public void setStars(int stars) {
-        if(stars < 0 || 5 < stars)
+        if (stars < 0 || 5 < stars)
             this.stars = 0;
 
         else
@@ -69,7 +68,7 @@ public class Restaurant {
     }
 
     public void setCapital(double capital) {
-        if(this.capital < 0 || this.capital < 4000)
+        if (this.capital < 0 || this.capital < 4000)
             this.capital = 4000;
 
         else

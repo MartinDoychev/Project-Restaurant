@@ -11,7 +11,7 @@ public class Menu {
         this.optionsDrinks = new Drinks[10];
 
         this.creation();
-        printMenu();
+
     }
 
     private void creation() {

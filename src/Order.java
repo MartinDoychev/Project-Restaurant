@@ -166,7 +166,7 @@ public class Order {
             waiter.addTips(tip);
             waiter.addTotalOrder(price);
         }
-        System.out.printf("Your bill is %.2f $\n ", bill);
+        System.out.printf("Your bill is %.2f $\n", bill);
 
     }
 

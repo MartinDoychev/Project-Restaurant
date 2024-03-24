@@ -9,12 +9,10 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-public class Customer  {
+public class Customer {
     private int id = 1;
-    private Order order;
     private String NAME;
     private Table table;
-    Scanner scanner = new Scanner(System.in);
 
     public Customer(String name, boolean tip) {
         NAME = name;
@@ -51,8 +49,6 @@ public class Customer  {
 
 
     }
-
-
 
 
 }
