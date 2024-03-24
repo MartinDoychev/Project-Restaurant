@@ -4,7 +4,6 @@ public class Waiter extends Employee {
     private double tip;
     private double totalTip = 0;
     private double totalOrder = 0;
-
     public Waiter(String name, String position, double salary) {
         super(name, position, salary);
     }

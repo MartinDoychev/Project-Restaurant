@@ -8,9 +8,7 @@ public class Table {
     private static int nextId = 0;
     private int id;
     private static final int TABLE = 11;
-    private static final int TABLE_SEATS_SMALL = 4;
-    private static final int TABLE_SEATS_MEDIUM = 6;
-    private static final int TABLE_SEATS_LARGE = 8;
+   
     private int customers;
     private int group;
     private int numberTable = 1;
@@ -60,8 +58,8 @@ public class Table {
 
     public int Seats() {
         int min = 15;
-        int max = 80;
-        int availableSeats = TABLE * (TABLE_SEATS_LARGE + TABLE_SEATS_MEDIUM + TABLE_SEATS_SMALL);
+        int max = 100;
+        int availableSeats = 82;
         this.customers = (int) Math.floor(Math.random() * (max - min + 1) + min);
         System.out.printf("Total free seats: %d \n", this.customers);
         System.out.println();
