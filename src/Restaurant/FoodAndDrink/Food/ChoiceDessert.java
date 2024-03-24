@@ -8,7 +8,7 @@ public class ChoiceDessert extends Food {
     }
 
     public void choiceDessert() {
-        System.out.println("What would you like better:\n1. Cheesecake\n2. Pancake\n3. Soufflè with a ball ice cream");
+        System.out.println("What would you like better:\n1. Cheesecake\n2. Pancakes\n3. Soufflè with a ball ice cream");
         short choice = scanner.nextShort();
         System.out.println();
 
@@ -24,10 +24,10 @@ public class ChoiceDessert extends Food {
             }
 
             case 2: {
-                this.setName("Pancake");
+                this.setName("Pancakes");
                 this.setPortion(250);
                 this.setPrice(8.45);
-                this.product = new Product("Pancake");
+                this.product = new Product("Pancakes");
                 this.print();
 
                 break;
