@@ -50,7 +50,7 @@ public class Menu {
         this.optionsFood[6].setPrice(10.75);
 
         this.optionsFood[7] = new Food();
-        this.optionsFood[7].setName("Pancake");
+        this.optionsFood[7].setName("Pancakes");
         this.optionsFood[7].setPortion(250);
         this.optionsFood[7].setPrice(8.45);
 
